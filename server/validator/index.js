@@ -1,3 +1,11 @@
 const { validationResult } = require("express-validator");
 
-exports.runValidateUserSignUp = (req, resp, next)
+exports.runValidateUserSignUp = (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({
+      error: errors.array()[0].msg
+    });
+  }
+  next();  
+};

@@ -27,9 +27,13 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "user",
     },
-    reserPassword: {
-      data: String, // to save the token as the data
-      default: "",
+    resetPassword: {
+      type: {
+        data: String, // to save the token as the data
+      },
+      default: {
+        data: "",
+      },
     },
   },
   { timestamps: true }
